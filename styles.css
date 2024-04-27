@@ -1,0 +1,444 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Styles for the body */
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(44, 44, 44);
+}
+
+/* Container for profile page */
+.wrapper {
+  position: relative;
+  height: 35rem;
+  width: 45rem;
+  padding: 1.5rem;
+}
+
+/* Styles for the cover element */
+.cover {
+  top: 0;
+  left: 0;
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  background-color: rgb(86, 86, 241);
+  box-shadow: 0 0 10px blue; /* Fixed the box-shadow */
+  border-top-left-radius: .6rem;
+  border-bottom-left-radius: .6rem;
+  transform-origin: right;
+}
+
+/* Move cover behind other content */
+.cover.cover-left {
+  z-index: -1;
+}
+
+/* Rotate cover when turn class is applied */
+.cover.cover-right.turn {
+  transform: rotateY(180deg);
+}
+
+/* Container for the book-like layout */
+.book {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+/* Styles for the pages of the book */
+.book .book-page {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  box-shadow: 0 0 .6rem rgb(65, 62, 62);
+  display: flex;
+  padding: 1.5rem;
+}
+
+/* Profile section */
+.profile-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* Styles for profile picture */
+.profile-page img {
+  max-width: 130px;
+  max-height: 130px;
+  border-radius: 50%;
+  border: .25rem solid rgb(110, 49, 145);
+  margin-bottom: .8rem;
+}
+
+/* Heading styles */
+.profile-page h1 {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.profile-page h3 {
+  font-size: 1.5rem;
+  color: rgb(44, 167, 238);
+}
+
+/* Styles for social media icons */
+.profile-page .social-media {
+  margin: .6rem 0 .8rem;
+}
+
+.profile-page .social-media a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: transparent;
+  border: 1px solid rgb(46, 217, 230);
+  border-radius: 50%;
+  font-size: 1.3rem;
+  margin: 0 .2rem;
+  transition: .5s;
+}
+
+/* Hover effect for social media icons */
+.profile-page .social-media a:hover {
+  background-color: aqua;
+}
+
+/* Paragraph styles */
+.profile-page p {
+  text-align: justify;
+}
+
+/* Styles for buttons */
+.profile-page .btn-box {
+  margin-top: 1.2rem;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 6.5rem;
+  height: 2rem;
+  background-color: rgb(54, 40, 184);
+  border: 1px solid rgb(80, 82, 219);
+  border-radius: .3rem;
+  font-size: 1rem;
+  color: white;
+  font-weight: 500;
+  margin: 0 1rem;
+  transition: .5s;
+}
+
+/* Hover effect for buttons */
+.btn:hover {
+  background-color: white;
+  color: rgb(90, 53, 190);
+}
+
+/* Second button style */
+.btn-box .btn:nth-child(2) {
+  background-color: white;
+  color: rgb(105, 32, 173);
+}
+
+/* Hover effect for second button */
+.btn-box .btn:nth-child(2):hover {
+  background-color: rgb(92, 92, 240);
+  color: white;
+}
+
+/* Styles for right page of the book */
+
+
+.book-page.page-right {
+  width: 50%;
+  float: left;
+  position: absolute;
+  right: 0;
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+.book-page.page-right.turn {
+  transform: rotateY(-180deg);
+
+}
+.book-page .page-front,
+.book-page .page-back{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background:white;
+padding: 1rem 1rem;
+}
+
+.book-page .page-front{
+transform: rotateY(0deg) translateZ(1px);
+}
+
+.book-page .page-back{
+transform: rotateY(180deg) translate(1px);
+}
+
+.title{
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.workeduca-box .workeduca-content{
+  position: relative;
+  
+  margin-bottom: 1rem;
+}
+
+.workeduca-content .year{
+  color: rgb(76, 54, 201);
+  margin-right: .4rem;
+}
+
+.number-page{
+  position: absolute;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nextprev-btn{
+  position: absolute;
+  height: 2.5rem;
+  width: 2.5rem;
+  bottom: .6rem;
+  cursor: pointer;
+  right: 1.5rem;
+  color: blue;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+}
+.nextprev-btn:hover{
+  color: aqua;
+}
+
+.nextprev-btn.back{
+  position: absolute;
+  height: 2.5rem;
+  width: 2,5rem;
+  color: rgb(41, 201, 235);
+  left: 1.2rem;
+  bottom: .8rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items:center;
+  transition: .5s;
+}
+.nextprev-btn.back:hover{
+  color: aqua;
+}
+.sevices-box{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.sevices-box .services-content{
+flex: 1 1 2rem;
+border: 1px solid rgb(41, 206, 235);
+border-radius: .5rem;
+padding: .3rem .4rem 1rem;
+text-align: center;
+transition: .3s ease;
+}
+.sevices-box .services-content:hover{
+  box-shadow:0 0 10px 0 rgb(41, 206, 235);
+
+}
+.services-content i{
+  font-size: 2rem;
+  color:rgb(41, 206, 235);
+}
+
+.services-content h3{
+  font-size: 1rem;
+}
+
+.services-content p{
+  margin: .2rem 0 .8rem;
+  font-size: .98rem;
+}
+.services-content a{
+  font-size: 1rem;
+  border: 1px solid black;
+  border-radius: .4rem;
+  background-color:rgb(41, 206, 235) ;
+  color: white;
+  padding: .3rem;
+  transition: .5s;
+}
+.services-content a:hover{
+  background-color: white;
+  color: black;
+}
+.skills-box{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.skills-box .skills-content{
+  flex: 1 1 20rem;
+}
+.skills-content h3{
+  font-size: 1.3rem;
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+.skills-content .content{
+  display: flex;
+  flex-wrap: wrap;
+  gap: .3rem;
+}
+.skills-content .content span{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 2.5rem;
+  width: 5rem;
+  border: 1px solid aqua;
+  border-radius: .3rem;
+  transition: .5s ease;
+}
+.skills-content .content span:hover {
+  box-shadow:0 0 10px 0 rgb(41, 206, 235);
+}
+
+.skills-content .content span i{
+  font-size: 1.5rem;
+  color: rgb(41, 206, 235);
+}
+
+.portfolio-box .image-box{
+  display: flex;
+  width:100%;
+  height: 13rem;
+  background-color: red;
+  border: 1px solid rgb(41, 206, 235);
+  border-radius: .5rem;
+  overflow: hidden;
+}
+.portfolio-box .image-box img{
+  width: 100%;
+  object-fit: cover;
+  transition: .5s ease;
+}
+.portfolio-box .image-box:hover img{
+  transform: scale(1.1);
+}
+.portfolio-box .info-box{
+margin: 1rem 0 1.5rem;
+}
+.portfolio-box .info-box .info-title{
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.portfolio-box .info-box .info-title h3{
+  font-size: 1.3rem;
+}
+.portfolio-box .info-box .info-title a{
+  display: flex;
+  align-items: center;
+  color:rgb(41, 206, 235) ;
+  font-size: .8rem;
+}
+.portfolio-box .info-box .info-title a i{
+  margin-left: .3rem;
+}
+.portfolio-box .info-box p:nth-of-type(1){
+  font-weight: 600;
+}
+.portfolio-box .btn-box{
+  display: flex;
+  justify-content: center;
+
+}
+.portfolio-box .btn-box .btn{
+  margin: 0 1.15rem;
+}
+.contact-box{
+  text-align: center;
+}
+.contact-box .field{
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgb(41, 206, 235);
+  padding: .8rem;
+  border-radius: .3rem;
+  font-size: 1rem;
+  color:rgb(41, 206, 235) ;
+  margin-bottom: 1.5rem;
+}
+.contact-box .field::placeholder{
+  color: gray;
+}
+.contact-box textarea{
+  resize: none;
+  height: 12rem;
+}
+.contact-box .btn{
+cursor: pointer;
+
+}
+.back-profile{
+  position: absolute;
+  bottom: 1.2rem;
+  right: 2rem;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border-radius: .3rem;
+  border: 1px solid rgb(41, 206, 235);
+  font-size: 1.1rem;
+  color:rgb(41, 206, 235) ;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+}
+.back-profile:hover{
+  background-color:rgb(41, 206, 235);
+  color: white;
+}
+.back-profile p{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  font-size: 1rem;
+  opacity: 0;
+  transition: .5s;
+}
+.back-profile:hover p{
+  opacity: 1;
+  transform: translateX(-50%)scale(1);
+  top: -1.8rem;
+
+}
